@@ -1,0 +1,179 @@
+    *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .dashboard {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #2d3748;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .status-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .status-dot.normal { background-color: #48bb78; }
+        .status-dot.warm { background-color: #ed8936; }
+        .status-dot.hot { background-color: #f56565; }
+
+        .status-text {
+            color: #718096;
+            font-size: 14px;
+        }
+
+        .gauge-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 30px;
+        }
+
+        .gauge-bg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .temperature-display {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .temp-value {
+            font-size: 56px;
+            font-weight: 700;
+            color: #2d3748;
+            line-height: 1;
+        }
+
+        .temp-unit {
+            font-size: 24px;
+            color: #a0aec0;
+            margin-left: 4px;
+        }
+
+        .temp-label {
+            font-size: 14px;
+            color: #718096;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .fan-status-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .fan-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .fan-icon.spinning {
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .fan-status {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .fan-speed {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .info-card {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .info-value {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        @media (max-width: 480px) {
+            .dashboard {
+                padding: 24px;
+            }
+
+            .gauge-container {
+                width: 240px;
+                height: 240px;
+            }
+
+            .temp-value {
+                font-size: 48px;
+            }
+
+            .header h1 {
+                font-size: 20px;
+            }
+        }

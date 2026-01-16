@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Fan Control Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>Temperature Fan Control</h1>
+            <div style="margin-top: 12px;">
+                <span class="status-dot normal" id="statusDot"></span>
+                <span class="status-text" id="statusText">System Normal</span>
+            </div>
+        </div>
+
+        <div class="gauge-container">
+            <svg class="gauge-bg" viewBox="0 0 200 200">
+                <defs>
+                    <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#48bb78;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#ed8936;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#f56565;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                
+                <!-- Background arc -->
+                <circle cx="100" cy="100" r="85" fill="none" stroke="#e2e8f0" stroke-width="16" 
+                        stroke-dasharray="534" stroke-dashoffset="133.5" 
+                        transform="rotate(135 100 100)" stroke-linecap="round"/>
+                
+                <!-- Progress arc -->
+                <circle id="gaugeProgress" cx="100" cy="100" r="85" fill="none" 
+                        stroke="url(#gaugeGradient)" stroke-width="16" 
+                        stroke-dasharray="534" stroke-dashoffset="534" 
+                        transform="rotate(135 100 100)" stroke-linecap="round"
+                        style="transition: stroke-dashoffset 0.5s ease"/>
+            </svg>
+            
+            <div class="temperature-display">
+                <div>
+                    <span class="temp-value" id="tempValue">24</span>
+                    <span class="temp-unit">°C</span>
+                </div>
+                <div class="temp-label">Temperature</div>
+            </div>
+        </div>
+
+        <div class="fan-status-card">
+            <svg class="fan-icon" id="fanIcon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                <circle cx="12" cy="12" r="2"/>
+                <path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>
+                <path d="M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+            </svg>
+            <div class="fan-status" id="fanStatus">FAN OFF</div>
+            <div class="fan-speed" id="fanSpeed">Standby Mode</div>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-label">Min Temp</div>
+                <div class="info-value" id="minTemp">18°C</div>
+            </div>
+            <div class="info-card">
+                <div class="info-label">Max Temp</div>
+                <div class="info-value" id="maxTemp">24°C</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
